@@ -265,7 +265,11 @@ contributor.start = function (next) {
             '###### Contributors'
           ];
           mkPerson = [];
-          yesno.ask('Save to contributors.md? (yes/no)', true, function(ok) {
+          yesno({
+            question: 'Save to contributors.md? (yes/no)',
+            defaultValue: true,
+          })
+          .then(function(ok) {
             if(ok) {
               i=0;
               data.forEach(function(person){
